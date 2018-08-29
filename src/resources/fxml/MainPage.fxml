@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.MainPageController">
+   <children>
+      <HBox prefHeight="107.0" prefWidth="720.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="96.0" prefWidth="313.0" text="Multi-Cite">
+               <font>
+                  <Font name="Moonwalk Miss" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Pane layoutY="96.0" prefHeight="663.0" prefWidth="720.0">
+         <children>
+            <TextArea fx:id="__linksBox" prefHeight="663.0" prefWidth="720.0" promptText="Copy and paste your list of links here..." />
+         </children></Pane>
+      <HBox layoutY="759.0" prefHeight="141.0" prefWidth="720.0">
+         <children>
+            <Button fx:id="__citeButton" mnemonicParsing="false" onAction="#citeButtonAction" prefHeight="52.0" prefWidth="100.0" text="Cite Links" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
