@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.controllers.MissingInfoPageController">
+   <children>
+      <HBox prefHeight="107.0" prefWidth="720.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="96.0" prefWidth="313.0" text="Multi-Cite">
+               <font>
+                  <Font name="Moonwalk Miss" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Pane fx:id="__pane" layoutY="96.0" prefHeight="663.0" prefWidth="720.0">
+         <children>
+            <TextField fx:id="__articleTitle" layoutX="28.0" layoutY="35.0" promptText="Article Title" />
+            <TextField fx:id="__firstName" layoutX="191.0" layoutY="132.0" prefHeight="25.0" prefWidth="90.0" promptText="First Name" />
+            <TextField fx:id="__middleName" layoutX="295.0" layoutY="132.0" prefWidth="90.0" promptText="MI / Middle" />
+            <TextField fx:id="__lastName" layoutX="396.0" layoutY="132.0" prefWidth="90.0" promptText="Last Name" />
+            <TextField fx:id="__websiteTitle" layoutX="28.0" layoutY="234.0" promptText="Website Title" />
+            <TextField fx:id="__suffix" layoutX="500.0" layoutY="132.0" prefWidth="90.0" promptText="Suffix" />
+            <TextField fx:id="__pubSpon" layoutX="28.0" layoutY="285.0" promptText="Publisher / Sponsor" />
+            <TextField fx:id="__url" layoutX="28.0" layoutY="332.0" promptText="URL" />
+            <TextField fx:id="__day" layoutX="115.0" layoutY="432.0" prefWidth="90.0" promptText="Day" />
+            <TextField fx:id="__year" layoutX="329.0" layoutY="432.0" prefWidth="90.0" promptText="Year" />
+            <TextField fx:id="__time" layoutX="434.0" layoutY="432.0" prefWidth="90.0" promptText="Time" />
+            <ChoiceBox fx:id="__contributorChoice" layoutX="87.0" layoutY="132.0" prefHeight="25.0" prefWidth="90.0" />
+            <ChoiceBox fx:id="__monthChoice" layoutX="222.0" layoutY="432.0" prefHeight="25.0" prefWidth="90.0" />
+         </children></Pane>
+      <HBox layoutY="759.0" prefHeight="141.0" prefWidth="720.0">
+         <children>
+            <Button fx:id="__continueButton" mnemonicParsing="false" onAction="#continueButtonAction" prefHeight="52.0" prefWidth="100.0" text="Continue" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

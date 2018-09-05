@@ -15,7 +15,7 @@ public class mLogger {
         LogManager.getLogManager().readConfiguration(stream);
 
         // get the global logger to configure it
-        Logger logger = Logger.getLogger(Constants.GLOBAL_LOGGER_NAME);
+        Logger logger = Logger.getLogger(mLogger.class.getSimpleName());
 
         // suppress the logging output to the console
         Logger rootLogger = Logger.getLogger("");

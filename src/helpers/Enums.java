@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 
 import src.helpers.Interfaces.EnumElement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Enums {
     public enum EasyBibStages {
         HOME_PAGE,
@@ -13,6 +17,23 @@ public class Enums {
         CITE_COMPLETION
     }
 
+    public enum ChoiceBoxEnum {
+        CONTRIBUTOR_CHOICE("Author", "Editor", "Translator"),
+        MONTH_CHOICE("", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+                "November", "December");
+
+        private List<String> values;
+
+        ChoiceBoxEnum(String... values) {
+            this.values = Arrays.asList(values);
+        }
+
+        public List<String> getValues() {
+            return this.values;
+        }
+    }
+
+    /** Element Enums */
     public enum HomePageElement implements EnumElement{
         SEARCH_TEXT("searchText", By.name("q")),
         HOME_PAGE_CITE("homePageCiteButton", By.className("searchbutton"));
@@ -77,7 +98,7 @@ public class Enums {
 
     public enum MissingInfoElement implements EnumElement {
         ARTICLE_TITLE("articleTitle", By.name("website[title]")),
-        CONTRIBUTORS_SELECT("contributorsSelect", By.name("contributors[function]")),
+        CONTRIBUTORS_SELECT("contributorsSelect", By.name("contributors[function][]")),
         FIRST_NAME("firstName", By.name("contributors[first][]")),
         MIDDLE_NAME("middleName", By.name("contributors[middle][]")),
         LAST_NAME("lastName", By.name("contributors[last][]")),
@@ -88,7 +109,8 @@ public class Enums {
         DAY("day", By.name("pubonline[day]")),
         MONTH("month", By.name("pubonline[month]")),
         YEAR("year", By.name("pubonline[year]")),
-        TIME("time", By.name("pubonline[timestamp]"));
+        TIME("time", By.name("pubonline[timestamp]")),
+        COMPLETE("complete", By.className("complete-citation"));
 
         private String key;
         private By locator;

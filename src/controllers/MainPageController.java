@@ -3,6 +3,7 @@ package src.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import src.helpers.ChromeTab;
 import src.helpers.Constants;
 import src.helpers.Enums;
@@ -22,13 +23,14 @@ public class MainPageController {
     private boolean _isInitialized = false;
     private ArrayList<String> _linksList;
     private ArrayList<ChromeTab> _activeTabs;
+    private Stage _primaryStage;
 
     public MainPageController() {
         this._isInitialized = initialize();
         System.out.println("MainWindow: " + _isInitialized);
     }
 
-    public boolean initialize() {
+    private boolean initialize() {
         // Initialize elements
         if (!this._isInitialized) {
             this.__citeButton = new Button();
@@ -38,7 +40,6 @@ public class MainPageController {
             this._activeTabs = new ArrayList<ChromeTab>();
 
             // TODO: Create loading window
-            preloadWindows();
 
             return true;
         }
@@ -71,7 +72,7 @@ public class MainPageController {
             } else {
                 for (int i = 0; i < numOfLinks; i++) {
                     System.out.println("Active Tab: " + i + " URL: " + _linksList.get(pointer));
-                    _activeTabs.get(i).search(_linksList.get(numOfLinks));
+                    _activeTabs.get(i).citeAction(_linksList.get(numOfLinks));
                     pointer--;
                 }
                 numOfLinks = 0;
@@ -79,10 +80,11 @@ public class MainPageController {
         }
     }
 
-    private void preloadWindows() {
+    public void preloadWindows() {
+        System.out.println("STAGE---------------" + this._primaryStage);
         if (_activeTabs.isEmpty()) {
             for (int i = 0; i < Constants.MAX_TABS_OPEN; i++) {
-                _activeTabs.add(i, new ChromeTab(i));
+                _activeTabs.add(i, new ChromeTab(i, _primaryStage));
             }
         }
     }
@@ -132,15 +134,19 @@ public class MainPageController {
     }
 
     // Getters and Setters
-    private TextArea getLinksBox() {
+    public TextArea getLinksBox() {
         return this.__linksBox;
     }
 
-    private void setText(String text) {
+    public void setText(String text) {
         this._text = text;
     }
 
-    private String getText() {
+    public String getText() {
         return this._text;
+    }
+
+    public void setStage(Stage stage) {
+        this._primaryStage = stage;
     }
 }
